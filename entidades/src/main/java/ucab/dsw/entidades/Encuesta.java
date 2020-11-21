@@ -29,6 +29,9 @@ public class Encuesta extends EntidadBase {
     @JoinColumn(name="idUsuario_Analista")
     private Usuario idUsuarioAnalista;
 
+    @OneToMany(mappedBy = "encuesta", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    private List<Ejecucionencuesta> EjerciE;
+
     public void setFechacreacion(Date FC){this.fechacreacion=FC;}
     public Date getFechacreacion(){return this.fechacreacion;}
 
@@ -40,6 +43,9 @@ public class Encuesta extends EntidadBase {
 
     public void setidUsuarioAnalista(Usuario UA){this.idUsuarioAnalista=UA;}
     public Usuario getidUsuarioAnalista(){return this.idUsuarioAnalista;}
+
+    public List<Ejecucionencuesta> get_ejercicioEncuesta(){return this.EjerciE;}
+    public void set_ejercicioEncuesta( List<Ejecucionencuesta> EC ){this.EjerciE = EC;}
 
     public Encuesta(long id){super(id);}
     public Encuesta(){}

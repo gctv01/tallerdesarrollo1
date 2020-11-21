@@ -1,5 +1,12 @@
+ucab\dsw\entidades\Ejecucionencuesta.class
+ucab\dsw\entidades\Opcion.class
 ucab\dsw\entidades\Usuario.class
 ucab\dsw\entidades\TipoUsuario.class
 ucab\dsw\entidades\EntidadBase.class
+ucab\dsw\entidades\solicitud.class
+ucab\dsw\entidades\Encuesta.class
+ucab\dsw\entidades\Estudio.class
+ucab\dsw\entidades\Tipopregunta.class
+ucab\dsw\entidades\Pregunta.class
 ucab\dsw\entidades\categoria.class
 ucab\dsw\entidades\subCategoria.class

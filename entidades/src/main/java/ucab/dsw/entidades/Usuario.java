@@ -106,7 +106,6 @@ public class Usuario extends EntidadBase
     private List<Encuesta> UsuarioAnalista;
 
     public List<Encuesta> get_Usuario_Analista(){return this.UsuarioAnalista;}
-
     public void set_Usuario_Analista( List<Encuesta> UA )
     {
         this.UsuarioAnalista = UA;
@@ -115,6 +114,13 @@ public class Usuario extends EntidadBase
     @ManyToOne
     @JoinColumn( name = "idTipoUsuario" )
     private TipoUsuario _tipousuario;
+
+    @OneToMany(mappedBy = "usuarioEncuest", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    private List<Ejecucionencuesta> EjerciE;
+
+    public List<Ejecucionencuesta> get_ejercicioEncuesta(){return this.EjerciE;}
+    public void set_ejercicioEncuesta( List<Ejecucionencuesta> EC ){this.EjerciE = EC;}
+
 
     public Usuario( long id )
     {

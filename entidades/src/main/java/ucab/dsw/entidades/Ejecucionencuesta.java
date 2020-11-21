@@ -9,8 +9,7 @@ public class Ejecucionencuesta extends EntidadBase {
 
     @Column(name = "respuesta", nullable = false)
     private String _respuesta;
-    @Column(name = "estatus", nullable = false)
-    private String _estatus;
+
     @ManyToOne
     @JoinColumn(name = "idEncuesta")
     private Encuesta encuesta;
@@ -20,21 +19,15 @@ public class Ejecucionencuesta extends EntidadBase {
     @ManyToOne
     @JoinColumn(name = "idOpcion")
     private Opcion opcion;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario_Encuestado ")
+    private Usuario usuarioEncuest;
 
     public String get_respuesta() {
         return _respuesta;
     }
-
     public void set_respuesta(String _descripcion) {
         this._respuesta = _respuesta;
-    }
-
-    public String get_estatus() {
-        return _estatus;
-    }
-
-    public void set_estatus(String _estatus) {
-        this._estatus = _estatus;
     }
 
     public Encuesta getIdencuesta(){return this.encuesta;}
@@ -46,16 +39,11 @@ public class Ejecucionencuesta extends EntidadBase {
     public Opcion getIdopcion(){return this.opcion;}
     public void setIdopcion(Opcion U){this.opcion=U;}
 
+    public Usuario getIdencuestado(){return this.usuarioEncuest;}
+    public void setIdencuestado(Usuario UE){this.usuarioEncuest=UE;}
 
-    @OneToMany(mappedBy = "_tipousuario", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private List<Usuario> _usuariosencuestados;
-
-    public Ejecucionencuesta(long id) {
-        super(id);
-
-
-
-    }
+    public Ejecucionencuesta(long id) {super(id);}
+    public Ejecucionencuesta() {}
 }
 
 

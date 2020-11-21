@@ -12,54 +12,50 @@ import java.util.List;
 
 
     @Entity
-    //@Table( name = "opcion" )
+    @Table( name = "opcion" )
     public class Opcion extends EntidadBase
     {
+        @Column( name = "descripcion", nullable = false )
+        private String _descripcion;
+
+        @ManyToOne
+        @JoinColumn(name="idPregunta ")
+        private Pregunta pregunta;
+
+        @OneToMany(mappedBy = "opcion", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+        private List<Ejecucionencuesta> Lopcion;
+
+        public Pregunta get_pregunta()
+        {
+            return this.pregunta;
+        }
+        public void set_pregunta( Pregunta P )
+        {
+            this.pregunta= P;
+        }
+
         public String get_descripcion()
         {
             return _descripcion;
         }
-
         public void set_descripcion( String _descripcion )
         {
             this._descripcion = _descripcion;
         }
 
-        //@Column( name = "descripcion", nullable = false )
-        private String _descripcion;
-
-        public List<Usuario> get_usuarios()
+        public List<Ejecucionencuesta> get_ejercicioEncuesta()
         {
-            return _usuarios;
+            return this.Lopcion;
         }
-
-        public void set_estudios( List<Usuario> _usuarios )
+        public void set_ejercicioEncuesta( List<Ejecucionencuesta> EE )
         {
-            this._usuarios = _usuarios;
+            this.Lopcion =EE;
         }
-
-        //public List<Estudio> get_estudios()
-        {
-            //return _estudios;
-        }
-
-        public void set_estudio( List<Usuario> _usuarios )
-        {
-            this._usuarios = _usuarios;
-        }
-
-        @OneToMany( mappedBy = "_opcion", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST )
-        private List<Usuario> _usuarios;
 
         public Opcion( long id )
         {
             super( id );
         }
 
-        public Opcion( )
-        {
-
-        }
+        public Opcion( ) {}
     }
-
-}
