@@ -3,9 +3,10 @@ package ucab.dsw.dtos;
 
 
 public class DtoTipoPregunta extends DtoBase{
-    private String id;
+
     private String estatus;
     private String descripcion;
+    private DtoTipoPregunta tipopregunta;
 
     public DtoTipoPregunta() {
 
@@ -20,7 +21,6 @@ public class DtoTipoPregunta extends DtoBase{
     {
         return estatus;
     }
-
     public void setestatus( String estatus )
     {
         this.estatus = estatus;
@@ -35,9 +35,6 @@ public class DtoTipoPregunta extends DtoBase{
     {
         this.tipopregunta= tipopregunta;
     }
-
-
-    private DtoTipoPregunta tipopregunta;
 
 
 

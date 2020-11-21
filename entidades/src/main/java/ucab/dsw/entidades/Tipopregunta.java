@@ -22,7 +22,6 @@ public class Tipopregunta extends EntidadBase
     {
         return _descripcion;
     }
-
     public void set_descripcion( String _descripcion )
     {
         this._descripcion = _descripcion;
@@ -32,7 +31,6 @@ public class Tipopregunta extends EntidadBase
     {
         return this.Pregunta;
     }
-
     public void set_Pregunta(  List<Pregunta> P )
     {
         this.Pregunta = P;
